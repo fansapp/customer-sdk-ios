@@ -686,8 +686,9 @@
 - (void)disconnectFromRealTimeUpdates{
     NSLog(@"DISCONNECTING TRACKER");
     
+    // FANS: the following line is commented out becuase it cuase the bug that after losing internet connection, GGTrackerManager no longer get any update from self.liveMonitor.
     // remove internal delegate
-    [self.liveMonitor setRealtimeDelegate:nil];
+    // [self.liveMonitor setRealtimeDelegate:nil];
     
     // stop all watching
     //[self stopWatchingAllOrders];
