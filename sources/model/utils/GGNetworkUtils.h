@@ -128,8 +128,8 @@
                                           completionHandler:(nullable GGNetworkResponseHandler)completionHandler;
 
 
-+ (NSString *)bringgAPIUrlByRegion:(GGRegion)region;
-+ (NSString *)bringgRealtimeUrlByRegion:(GGRegion)region;
++ (NSString * _Nonnull)bringgAPIUrlByRegion:(GGRegion)region;
++ (NSString * _Nonnull)bringgRealtimeUrlByRegion:(GGRegion)region;
 
 
 @end

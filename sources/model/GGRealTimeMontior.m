@@ -58,11 +58,11 @@
 }
 
 - (BOOL)isSocketIOConnected{
-    return self.socketIO.status == SocketIOClientStatusConnected;
+    return self.socketIO.status == SocketIOStatusConnected;
 }
 
 - (BOOL)isSocketIOConnecting{
-    return self.socketIO.status == SocketIOClientStatusConnecting;
+    return self.socketIO.status == SocketIOStatusConnecting;
 }
 
 - (void)configureReachability {
@@ -323,9 +323,8 @@
     
     NSDictionary *connectionOptions = @{@"log": @(self.logsEnabled), @"forceWebsockets":@YES, @"secure": @(self.useSSL), @"reconnects":@NO, @"cookies":@[], @"connectParams":connectionParams};
     
-    self.socketIO = [[SocketIOClient alloc] initWithSocketURL:[NSURL URLWithString:server] config:connectionOptions];
-    
-    
+    SocketManager * socketManager = [[SocketManager alloc] initWithSocketURL:[NSURL URLWithString:server] config:connectionOptions];
+    self.socketIO = [[SocketIOClient alloc] initWithManager:socketManager nsp:@"/bringg"];
     
     if ([self isSocketIOConnected] || [self isSocketIOConnecting]) {
         
