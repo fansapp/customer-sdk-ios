@@ -323,8 +323,8 @@
     
     NSDictionary *connectionOptions = @{@"log": @(self.logsEnabled), @"forceWebsockets":@YES, @"secure": @(self.useSSL), @"reconnects":@NO, @"cookies":@[], @"connectParams":connectionParams};
     
-    SocketManager * socketManager = [[SocketManager alloc] initWithSocketURL:[NSURL URLWithString:server] config:connectionOptions];
-    self.socketIO = [[SocketIOClient alloc] initWithManager:socketManager nsp:@"/bringg"];
+    self.socketManager = [[SocketManager alloc] initWithSocketURL:[NSURL URLWithString:server] config:connectionOptions];
+    self.socketIO = self.socketManager.defaultSocket;
     
     if ([self isSocketIOConnected] || [self isSocketIOConnecting]) {
         

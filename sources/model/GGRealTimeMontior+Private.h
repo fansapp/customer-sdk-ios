@@ -49,6 +49,7 @@
 @property (nonatomic, assign) BOOL useSSL;
 @property (nonatomic, assign) BOOL wasManuallyConnected;
 
+@property (nonnull, nonatomic,strong) SocketManager *socketManager;
 @property (nonnull, nonatomic,strong) SocketIOClient *socketIO;
 @property (nullable, nonatomic, copy) CompletionBlock socketIOConnectedBlock;
 @property (nullable, nonatomic, weak) id<RealTimeDelegate> realtimeDelegate;
